@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-var Random = require('./Random');
-var Command = require('./Command');
+var Random = require('./js/Random');
+var Command = require('./js/Command');
 var random = new Random();
 var command = new Command();
 
