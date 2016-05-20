@@ -1,6 +1,9 @@
+#!/usr/bin/env node
+
 var Random = require('./Random');
 var random = new Random();
 var args = process.argv.slice(2);
+
 
 switch(args[0]) {
     case 'decimal':
