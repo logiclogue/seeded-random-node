@@ -7,14 +7,15 @@
     "test": "make test"
   },
   "author": "Jordan Lord",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "devDependencies": {
     "mocha": "^2.4.5"
   },
   "dependencies": {
+    "commander": "^2.9.0",
     "crypto-js": "^3.1.6"
   },
   "bin": {
-      "seeded-random": "index.js"
+    "seeded-random": "index.js"
   }
 }
