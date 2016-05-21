@@ -1,5 +1,6 @@
 var program = require('commander');
 var Random = require('./Random.js');
+var random = new Random();
 
 
 /*
@@ -7,7 +8,6 @@ var Random = require('./Random.js');
  * using commander.
  */
 var Command = function () {
-    this.random = new Random();
     // Defines all the commands with commander.
     program
         .version('1.0.0')
@@ -16,11 +16,6 @@ var Command = function () {
         .option('-d, --decimal', 'generates a random decimal number', false)
         .option('-r, --range <a>,<b>', 'generates a random integer in the range inclusive', this.range)
         .parse(process.argv);
-
-    // Brings up help if no arguments specified.
-    if (!program.args.length) {
-        program.help();
-    }
 
     // Calls the method that will check the commands
     // the user has entered.
@@ -36,10 +31,13 @@ var Command = function () {
      */
     proto_.switchFunction = function () {
         if (program.decimal) {
-            console.log(this.random.decimal(program.seed));
+            console.log(random.decimal(program.seed));
         }
         else if (typeof program.range !== 'undefined') {
-            console.log(this.random.range(program.seed, program.range[0], program.range[1]));
+            console.log(random.range(program.seed, program.range[0], program.range[1]));
+        }
+        else {
+            program.help();
         }
     };
 
