@@ -8,13 +8,22 @@ var Random = require('./Random.js');
  */
 var Command = function () {
     this.random = new Random();
+    // Defines all the commands with commander.
     program
         .version('1.0.0')
+        .description('Tool for generating random numbers from a seed')
         .option('-s, --seed <seed>', 'specify the seed', Math.random())
         .option('-d, --decimal', 'generates a random decimal number', false)
-        .option('-r, --range <a>..<b>', 'generates a random integer in the range inclusive', this.range)
+        .option('-r, --range <a>,<b>', 'generates a random integer in the range inclusive', this.range)
         .parse(process.argv);
 
+    // Brings up help if no arguments specified.
+    if (!program.args.length) {
+        program.help();
+    }
+
+    // Calls the method that will check the commands
+    // the user has entered.
     this.switchFunction();
 };
 
@@ -39,7 +48,7 @@ var Command = function () {
      * into an array.
      */
     proto_.range = function (val) {
-        return val.split('..').map(Number);
+        return val.split(',').map(Number);
     };
 
 }(Command, Command.prototype));
