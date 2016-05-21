@@ -16,18 +16,46 @@ Node module that allows you to generate seeded random numbers for your cli or we
 
 ### CLI
 
-**Generating a random decimal**
+**Generating a random decimal number**
 
 `$ seeded-random -d`
 
-**Generating a random decimal from a seed**
+**Generating a random decimal number from a seed**
 
 `$ seeded-random -d -s thisisaseed`
 
 `0.9044537395238876`
 
-**Generating a number within a range from a seed**
+**Generating a random integer within a range from a seed**
 
-`$ seeded-random -r 1..6 -s thisisaseed`
+`$ seeded-random -r 1,6 -s thisisaseed`
 
 `2`
+
+Omitting the seed will result it a non-seeded random number; it will just be generated as normal.
+
+### JavaScript
+
+**Generating a random decimal number from a seed**
+
+```
+var random = require('seeded-random');
+
+console.log(random.decimal('thisisaseed'));
+```
+
+**Generating a random integer within a range from a seed**
+
+```
+var random = require('seeded-random');
+
+console.log(random.range('thisisaseed', 1, 6));
+```
+
+**Selecting a random array element**
+
+```
+var random = require('seeded-random');
+
+console.log(random.element('thisisaseed', ['heads', 'tails']));
+```
