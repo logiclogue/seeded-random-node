@@ -1,6 +1,6 @@
 # seeded-random
 
-Node module that allows you to generate seeded random numbers for your cli or web applications.
+Node package that allows you to generate seeded random numbers for your cli or web applications.
 
 ## Installing
 

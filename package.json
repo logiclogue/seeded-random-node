@@ -1,7 +1,11 @@
 {
   "name": "seeded-random",
   "version": "1.0.0",
-  "description": "Pseudo random number generator",
+  "description": "CLI and code pseudo random number generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/logiclogue/seeded-random-node.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "make test"
