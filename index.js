@@ -6,7 +6,4 @@ var random = new Random();
 var command = new Command();
 
 
-module.exports = {
-    Random: Random,
-    random: random
-};
+module.exports = random;
