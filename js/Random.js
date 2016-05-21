@@ -29,7 +29,7 @@ var Random = function () {
      */
     proto_.range = function (seed, min, max) {
         var decimal = this.decimal(seed + '' + min + '' + max);
-        var number = Math.floor(decimal * (max + 1));
+        var number = min + Math.floor(decimal * (max - min + 1));
     
         return number;
     };
