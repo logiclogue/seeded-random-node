@@ -10,9 +10,9 @@ var Command = function () {
     this.random = new Random();
     program
         .version('1.0.0')
-        .option('-s, --seed <seed>', 'specify the seed', '')
-        .option('-f, --function <function-name>', 'function name', 'decimal')
-        .option('-r, --range <a>..<b>', 'range of numbers inclusive', this.range)
+        .option('-s, --seed <seed>', 'specify the seed', Math.random())
+        .option('-d, --decimal', 'generates a random decimal number', false)
+        .option('-r, --range <a>..<b>', 'generates a random integer in the range inclusive', this.range)
         .parse(process.argv);
 
     this.switchFunction();
@@ -26,18 +26,11 @@ var Command = function () {
      * class.
      */
     proto_.switchFunction = function () {
-        switch(program.function) {
-            case 'decimal':
-                console.log(this.random.decimal(program.seed));
-                break;
-
-            case 'range':
-                console.log(this.random.range(program.seed, program.range[0], program.range[1]));
-                break;
-
-            default:
-                console.log('Not a valid function');
-                break;
+        if (program.decimal) {
+            console.log(this.random.decimal(program.seed));
+        }
+        else if (typeof program.range !== 'undefined') {
+            console.log(this.random.range(program.seed, program.range[0], program.range[1]));
         }
     };
 
