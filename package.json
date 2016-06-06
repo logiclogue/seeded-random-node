@@ -1,6 +1,6 @@
 {
   "name": "seeded-random",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI and code pseudo random number generator",
   "repository": {
     "type": "git",

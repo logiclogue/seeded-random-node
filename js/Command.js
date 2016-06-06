@@ -1,6 +1,7 @@
 var program = require('commander');
 var Random = require('./Random.js');
 var random = new Random();
+var env = require('../package.json');
 
 
 /*
@@ -10,7 +11,7 @@ var random = new Random();
 var Command = function () {
     // Defines all the commands with commander.
     program
-        .version('1.0.1')
+        .version(env.version)
         .description('Tool for generating random numbers from a seed')
         .option('-s, --seed <seed>', 'specify the seed', Math.random())
         .option('-d, --decimal', 'generates a random decimal number', false)
