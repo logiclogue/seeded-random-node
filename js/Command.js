@@ -10,7 +10,7 @@ var random = new Random();
 var Command = function () {
     // Defines all the commands with commander.
     program
-        .version('1.0.0')
+        .version('1.0.1')
         .description('Tool for generating random numbers from a seed')
         .option('-s, --seed <seed>', 'specify the seed', Math.random())
         .option('-d, --decimal', 'generates a random decimal number', false)

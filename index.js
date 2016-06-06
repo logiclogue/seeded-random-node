@@ -3,7 +3,15 @@
 var Random = require('./js/Random');
 var Command = require('./js/Command');
 var random = new Random();
-var command = new Command();
 
 
-module.exports = random;
+/*
+ * If called from command line then switch
+ * commands. Else export 'random' object.
+ */
+if (require.main === module) {
+    new Command();
+}
+else {
+    module.exports = random;
+}
